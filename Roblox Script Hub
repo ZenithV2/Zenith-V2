@@ -1,28 +1,87 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 
-local Window = OrionLib:MakeWindow({Name = "Godlike Deluxe", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local Window = OrionLib:MakeWindow({Name = "Zenith V2", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-local Opimizers = Window:MakeTab({
-    Name = "Roblox Opimizers",
-    Icon = "rbxassetid://110088778341231",
-    PremiumOnly = false
+local main = Window:AddTab({
+    Title = "Main",
+    Icon = "0",
+    HidePremium = false
 })
 
-local MuscleLegends = Window:MakeTab({
-    Name = "Muscle Legends",
-    Icon = "rbxassetid://70672432936712",
-    PremiumOnly = false
+local autoweight = Window:AddTab({
+    Title = "Auto Weight",
+    Icon = "0",
+    HidePremium = false
 })
 
-local NinjaLegends = Window:AddTab({
-    Name = "Ninja Legends",
-    Icon = "rbxassetid://111022729947300",
-    PremiumOnly = false
+local autorebirth = Window:AddTab({
+    Title = "Auto Rebirth",
+    Icon = "0",
+    HidePremium = false
 })
 
-Opimizers:AddButton({
-    Title = "Muscle Legends Optimizer",
-    Callback = function()
-end
+local autokill = Window:AddTab({
+    Title = "Auto Kill",
+    Icon = "0",
+    HidePremium = false
 })
 
+local autorock = Window:AddTab({
+    Title = "Auto Rock",
+    Icon = "0",
+    HidePremium = false
+})
+
+local play = Window:AddTab({
+    Title = "Auto Gameplay",
+    Icon = "0",
+    HidePremium = false
+})
+
+local misc = Window:AddTab({
+    Title = "Misc",
+    Icon = "0",
+    HidePremium = false
+})
+
+local Friends = Window:AddTab({
+    Title = "Friends",
+    Icon = "0",
+    HidePremium = false
+})
+
+local Credits = Window:AddTab({
+    Title = "Credits",
+    Icon = "0",
+    HidePremium = false
+})
+
+local SizeInput = main:AddInput("SizeChanger", {
+    Title = "Size",
+    Description = "Change Ur Size",
+    Default = "2",
+    Placeholder = "Input ur size",
+    Numeric = true,
+    Finished = false,
+    Callback = function(Value)
+        selectedSize = Value
+        if _G.AutoSize then
+            game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer("changeSize", tonumber(selectedSize))
+        end
+    end
+})
+
+local SizeToggle = Section:AddToggle("Size", {
+    Title = "Size",
+    Description = "Change ur size",
+    Default = false,
+    Callback = function(Value)
+        _G.AutoSize = Value
+        if Value then
+            while _G.AutoSize do
+                game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer("changeSize", tonumber(selectedSize))
+                task.wait(0.1)
+            end
+        end
+    end
+})
