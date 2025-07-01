@@ -2,8 +2,27 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jen
 
 local Window = OrionLib:MakeWindow({Name = "Godlike Deluxe", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-local Opimizers  = Window:MakeTab({
+local Opimizers = Window:MakeTab({
     Name = "Roblox Opimizers",
     Icon = "rbxassetid://110088778341231",
     PremiumOnly = false
 })
+
+local MuscleLegends = Window:MakeTab({
+    Name = "Muscle Legends",
+    Icon = "rbxassetid://70672432936712",
+    PremiumOnly = false
+})
+
+local NinjaLegends = Window:AddTab({
+    Name = "Ninja Legends",
+    Icon = "rbxassetid://111022729947300",
+    PremiumOnly = false
+})
+
+Opimizers:AddButton({
+    Title = "Muscle Legends Optimizer",
+    Callback = function()
+end
+})
+
