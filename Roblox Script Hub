@@ -71,17 +71,19 @@ local SizeInput = main:AddInput("SizeChanger", {
     end
 })
 
-local SizeToggle = Section:AddToggle("Size", {
+local SizeToggle = main:AddToggle("Size", {
     Title = "Size",
     Description = "Change ur size",
     Default = false,
     Callback = function(Value)
         _G.AutoSize = Value
         if Value then
-            while _G.AutoSize do
-                game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer("changeSize", tonumber(selectedSize))
-                task.wait(0.1)
-            end
+            spawn(function()
+                while _G.AutoSize do
+                    game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer("changeSize", tonumber(selectedSize))
+                    task.wait(0.1)
+                end
+            end)
         end
     end
 })
