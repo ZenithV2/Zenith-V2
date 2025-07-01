@@ -56,13 +56,11 @@ local Credits = Window:AddTab({
     HidePremium = false
 })
 
-local SizeInput = main:AddInput("SizeChanger", {
-    Title = "Size",
-    Description = "Change Ur Size",
+main:AddTextbox({
+    Name = "Size",
     Default = "2",
-    Placeholder = "Input ur size",
+    TextDisappear = true,
     Numeric = true,
-    Finished = false,
     Callback = function(Value)
         selectedSize = Value
         if _G.AutoSize then
