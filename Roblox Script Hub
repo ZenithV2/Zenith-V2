@@ -4,55 +4,55 @@ local Window = OrionLib:MakeWindow({Name = "Zenith V2", HidePremium = false, Sav
 
 local main = Window:AddTab({
     Title = "Main",
-    Icon = "0",
+    Icon = "rbxassetid://123449248547857",
     HidePremium = false
 })
 
 local autoweight = Window:AddTab({
     Title = "Auto Weight",
-    Icon = "0",
+    Icon = "rbxassetid://123449248547857",
     HidePremium = false
 })
 
 local autorebirth = Window:AddTab({
     Title = "Auto Rebirth",
-    Icon = "0",
+    Icon = "rbxassetid://123449248547857",
     HidePremium = false
 })
 
 local autokill = Window:AddTab({
     Title = "Auto Kill",
-    Icon = "0",
+    Icon = "rbxassetid://123449248547857",
     HidePremium = false
 })
 
 local autorock = Window:AddTab({
     Title = "Auto Rock",
-    Icon = "0",
+    Icon = "rbxassetid://123449248547857",
     HidePremium = false
 })
 
 local play = Window:AddTab({
     Title = "Auto Gameplay",
-    Icon = "0",
+    Icon = "rbxassetid://123449248547857",
     HidePremium = false
 })
 
 local misc = Window:AddTab({
     Title = "Misc",
-    Icon = "0",
+    Icon = "rbxassetid://123449248547857",
     HidePremium = false
 })
 
 local Friends = Window:AddTab({
     Title = "Friends",
-    Icon = "0",
+    Icon = "rbxassetid://123449248547857",
     HidePremium = false
 })
 
 local Credits = Window:AddTab({
     Title = "Credits",
-    Icon = "0",
+    Icon = "rbxassetid://123449248547857",
     HidePremium = false
 })
 
