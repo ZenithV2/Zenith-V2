@@ -1,87 +1,19 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
+local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
 
-local Window = OrionLib:MakeWindow({Name = "Zenith V2", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+local window = DrRayLibrary:Load("Zenith V2", "Default")
 
-local main = Window:AddTab({
-    Title = "Main",
-    Icon = "rbxassetid://123449248547857",
-    HidePremium = false
-})
+local main = DrRayLibrary.newTab("Main", "ImageIdHere")
+local autoweight = DrRayLibrary.newTab("Auto Weight", "ImageIdHere")
+local autorebirth = DrRayLibrary.newTab("Auto Rebirth", "ImageIdHere")
+local autokill = DrRayLibrary.newTab("Auto Kill", "ImageIdHere")
+local autorock = DrRayLibrary.newTab("Auto Rock", "ImageIdHere")
+local autoplay = DrRayLibrary.newTab("Auto Play", "ImageIdHere")
+local friends = DrRayLibrary.newTab("Friends", "ImageIdHere")
+local Credits = DrRayLibrary.newTab("Credits", "ImageIdHere")
 
-local autoweight = Window:AddTab({
-    Title = "Auto Weight",
-    Icon = "rbxassetid://123449248547857",
-    HidePremium = false
-})
-
-local autorebirth = Window:AddTab({
-    Title = "Auto Rebirth",
-    Icon = "rbxassetid://123449248547857",
-    HidePremium = false
-})
-
-local autokill = Window:AddTab({
-    Title = "Auto Kill",
-    Icon = "rbxassetid://123449248547857",
-    HidePremium = false
-})
-
-local autorock = Window:AddTab({
-    Title = "Auto Rock",
-    Icon = "rbxassetid://123449248547857",
-    HidePremium = false
-})
-
-local play = Window:AddTab({
-    Title = "Auto Gameplay",
-    Icon = "rbxassetid://123449248547857",
-    HidePremium = false
-})
-
-local misc = Window:AddTab({
-    Title = "Misc",
-    Icon = "rbxassetid://123449248547857",
-    HidePremium = false
-})
-
-local Friends = Window:AddTab({
-    Title = "Friends",
-    Icon = "rbxassetid://123449248547857",
-    HidePremium = false
-})
-
-local Credits = Window:AddTab({
-    Title = "Credits",
-    Icon = "rbxassetid://123449248547857",
-    HidePremium = false
-})
-
-main:AddTextbox({
-    Name = "Size",
-    Default = "2",
-    TextDisappear = true,
-    Numeric = true,
-    Callback = function(Value)
-        selectedSize = Value
-        if _G.AutoSize then
-            game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer("changeSize", tonumber(selectedSize))
-        end
+main.newInput("Size", "changes your size.", function(numeric)
+    local selectedSize = numeric
+    if _G.AutoSize then
+        game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer("changeSize", tonumber(selectedSize))
     end
-})
-
-local SizeToggle = main:AddToggle("Size", {
-    Title = "Size",
-    Description = "Change ur size",
-    Default = false,
-    Callback = function(Value)
-        _G.AutoSize = Value
-        if Value then
-            spawn(function()
-                while _G.AutoSize do
-                    game:GetService("ReplicatedStorage").rEvents.changeSpeedSizeRemote:InvokeServer("changeSize", tonumber(selectedSize))
-                    task.wait(0.1)
-                end
-            end)
-        end
-    end
-})
+end)
